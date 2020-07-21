@@ -18,3 +18,4 @@ Get angular8 cli <br>
 
 > ng serve -o <br>
 > npm install
+> ng new project-name
