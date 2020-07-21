@@ -1,0 +1,35 @@
+<form [formGroup]="newMail" (ngSubmit)="onSubmit()">
+    <div>
+      <div>
+        <label>Title</label>
+        <input type="text" formControlName="title" />
+        <div *ngIf="submitted && form.title.errors">
+          <div>title: </div>
+          <div *ngIf="form.title.errors.required">Cannot be blank</div>
+          <div *ngIf="form.title.errors.minlength">At least 3 characters</div>
+        </div>
+      </div>
+      <div>
+        <label>Cuerpo</label>
+        <input type="text" formControlName="body" />
+        <div *ngIf="submitted && form.body.errors">
+          <div>body: </div>
+          <div *ngIf="form.body.errors.required">Cannot be blank</div>
+          <div *ngIf="form.body.errors.minlength">At least 10 characters</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <label>Destinatario</label>
+      <input type="text" formControlName="to" />
+      <div *ngIf="submitted && form.to.errors">
+        <div *ngIf="form.to.errors.required">Cannot be blank</div>
+        <div *ngIf="form.to.errors.email">Receiver mail must be a real one</div>
+      </div>
+    </div>
+  
+    <div>
+      <button>Send</button>
+      <button type="reset" (click)="onReset()">Cancel</button>
+    </div>
+  </form>
