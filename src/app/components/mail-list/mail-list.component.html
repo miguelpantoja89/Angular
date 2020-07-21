@@ -1,0 +1,15 @@
+<table style="width: 100%; border: 1px solid black;">
+    <tr>
+        <th>Read</th>
+        <th>From</th>
+        <th>To</th>
+    </tr>
+    <tr *ngFor="let mail of mails">
+        <td>
+            <div *ngIf="mail.read">Yes</div> 
+            <div *ngIf="!mail.read">No</div> 
+        </td>
+        <td>{{mail.from}}</td>
+        <td>{{mail.to}}</td>
+    </tr>
+</table>
