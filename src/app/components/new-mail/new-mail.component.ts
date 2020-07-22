@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NoticeService } from "src/app/services/notice.service";
 
 @Component({
   selector: 'app-new-mail',
@@ -12,7 +13,7 @@ export class NewMailComponent implements OnInit {
   @Input() mail: any;
   @Output() actionMade: EventEmitter<any> = new EventEmitter();
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private serviceNotice: NoticeService) { }
 
   
   ngOnInit(): void {
@@ -46,11 +47,16 @@ export class NewMailComponent implements OnInit {
 
     alert("Email Sent \nRemoving form");
     this.onReset();
+    this.serviceNotice.showMessage(`Mail sent to ${mail.from}`)
 }
 
 onReset() {
     this.submitted = false;
     this.newMail.reset();
     this.actionMade.emit();
+}
+cancel(){
+  this.onReset();
+  this.serviceNotice.showMessage("Mail canceled");
 }
 }
