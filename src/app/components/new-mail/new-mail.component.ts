@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -9,6 +9,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class NewMailComponent implements OnInit {
   newMail: FormGroup;
   submitted = false;
+  @Input() mail: any;
 
   constructor(private formBuilder: FormBuilder) { }
 
@@ -19,6 +20,14 @@ export class NewMailComponent implements OnInit {
       body: ['', [Validators.required, Validators.minLength(10)]],
       to: ['', [Validators.required, Validators.email]],
     });
+    
+    if(this.mail != undefined){
+      console.log("A",this.mail);
+      this.newMail.patchValue({
+        title: 'Re: '+ this.mail.title, 
+        to: this.mail.from
+      });
+    }
   }
 
   get form() { return this.newMail.controls; }

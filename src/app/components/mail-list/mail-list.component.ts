@@ -8,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class MailListComponent implements OnInit {
 
   mails : any[];
+  answer: boolean;
+  mailToAnswer: any;
   constructor() { 
     const mail1 = {
       title: "Title 1",
@@ -26,9 +28,13 @@ export class MailListComponent implements OnInit {
     this.mails = [];
     this.mails.push(mail1);
     this.mails.push(mail2);
+    this.answer = false;
   }
 
   ngOnInit(): void {
   }
 
+  clickAnswer(mailToAnswer) {
+    mailToAnswer.answer = !mailToAnswer.answer;
+  }
 }

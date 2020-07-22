@@ -4,12 +4,22 @@
         <th>From</th>
         <th>To</th>
     </tr>
-    <tr *ngFor="let mail of mails">
+    <ng-container *ngFor="let mail of mails; index as i">
+        <tr>
         <td>
-            <div *ngIf="mail.read">Yes</div> 
-            <div *ngIf="!mail.read">No</div> 
+            <input type="radio" name="read-{{i}}" [(ngModel)]="mail.read" [value]=true disabled> Yes
+            <input type="radio" name="read-{{i}}" [(ngModel)]="mail.read" [value]=false disabled> No 
         </td>
         <td>{{mail.from}}</td>
         <td>{{mail.to}}</td>
+        <td>
+            <button (click)="clickAnswer(mail)">Answer Mail</button>
+        </td>
     </tr>
+    
+        <tr *ngIf="mail.answer">
+            <app-new-mail [mail]="mail"></app-new-mail>
+          </tr>
+    
+</ng-container>
 </table>
