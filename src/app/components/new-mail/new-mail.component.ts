@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -10,6 +10,7 @@ export class NewMailComponent implements OnInit {
   newMail: FormGroup;
   submitted = false;
   @Input() mail: any;
+  @Output() actionMade: EventEmitter<any> = new EventEmitter();
 
   constructor(private formBuilder: FormBuilder) { }
 
@@ -20,7 +21,7 @@ export class NewMailComponent implements OnInit {
       body: ['', [Validators.required, Validators.minLength(10)]],
       to: ['', [Validators.required, Validators.email]],
     });
-    
+
     if(this.mail != undefined){
       console.log("A",this.mail);
       this.newMail.patchValue({
@@ -50,5 +51,6 @@ export class NewMailComponent implements OnInit {
 onReset() {
     this.submitted = false;
     this.newMail.reset();
+    this.actionMade.emit();
 }
 }

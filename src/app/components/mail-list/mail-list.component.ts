@@ -37,4 +37,8 @@ export class MailListComponent implements OnInit {
   clickAnswer(mailToAnswer) {
     mailToAnswer.answer = !mailToAnswer.answer;
   }
+
+  actionAnswer(mailToAnswer){
+    mailToAnswer.answer = false;
+  }
 }

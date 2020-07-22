@@ -18,7 +18,7 @@
     </tr>
     
         <tr *ngIf="mail.answer">
-            <app-new-mail [mail]="mail"></app-new-mail>
+            <app-new-mail [mail]="mail" (actionMade) = "actionAnswer(mail)"></app-new-mail>
           </tr>
     
 </ng-container>
