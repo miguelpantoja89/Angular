@@ -1,6 +1,6 @@
 <div *ngIf="login.isUserSignedIn()">
 	<div>
-		<p>Name: {{login.profile.ig}}</p>
+		<p>Name: {{login.user.BasicProfile.getName}}</p>
 		<p>Email: {{login.profile.U3}}</p>
 		<hr>
 		<button (click)="signOut()">Disconnect</button>
