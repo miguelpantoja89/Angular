@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, NgZone } from '@angular/core';
 import * as _ from "lodash";
 import { GoogleAuthService } from "ng-gapi";
 import GoogleUser = gapi.auth2.GoogleUser;
@@ -8,8 +8,9 @@ import GoogleUser = gapi.auth2.GoogleUser;
 })
 export class LoginService {
   public static SESSION_STORAGE_KEY: string = 'accessToken';
-  user: GoogleUser;
-  constructor(private googleAuth: GoogleAuthService) { 
+  public user: GoogleUser;
+
+  constructor(private googleAuth: GoogleAuthService, private ngZone: NgZone) { 
 
   }
   public getToken(): string {
@@ -50,5 +51,11 @@ private signInSuccessHandler(res: GoogleUser) {
   public isUserSignedIn(): boolean {
     return !_.isEmpty(sessionStorage.getItem(LoginService.SESSION_STORAGE_KEY));
   }
+
+  public infoUser(): string{
+    let namee: string = this.user.getBasicProfile().getName();
+    return namee;
+}
+
 
 }

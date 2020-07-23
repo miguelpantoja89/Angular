@@ -24,6 +24,7 @@ let gapiClientConfig: NgGapiClientConfig = {
   client_id: "345067761945-795frj5n6lums1e25bqr4pplhvejjnh4.apps.googleusercontent.com",
   discoveryDocs: ["https://analyticsreporting.googleapis.com/$discovery/rest?version=v4"],
   ux_mode: "popup",
+  fetch_basic_profile:true,
   scope: [
     "https://www.googleapis.com/auth/userinfo.profile",
     "https://www.googleapis.com/auth/userinfo.email",
