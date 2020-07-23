@@ -1,0 +1,14 @@
+<div *ngIf="login.isUserSignedIn()">
+	<div>
+		<p>Name: {{login.profile.ig}}</p>
+		<p>Email: {{login.profile.U3}}</p>
+		<hr>
+		<button (click)="signOut()">Disconnect</button>
+		<hr>
+	</div>
+</div>
+<div *ngIf="!login.isUserSignedIn()">
+	<hr>
+	<button (click)="signIn()"><span>Conect with Google</span></button>
+	<hr>
+</div> 
