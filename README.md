@@ -4,6 +4,7 @@
 ![Github](https://img.shields.io/badge/npm-v%206.14.5-blue)
 
 Introduction to Angular 8 / Front-End : <br>
+Mail angular application <br>
 Get additional information about [Angular](https://angular.io/)
 
 ### Getting started <br>
