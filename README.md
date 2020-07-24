@@ -1,4 +1,4 @@
-# Angular8
+# Angular
 
 ![GitHub](https://img.shields.io/github/license/miguelpantoja89/Angular8?style=plastic)
 ![Github](https://img.shields.io/badge/npm-v%206.14.5-blue)
