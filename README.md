@@ -19,3 +19,7 @@ Get angular8 cli <br>
 > ng serve -o <br>
 > npm install
 > ng new project-name
+
+### Fancy things !
+
+Check it out how to use materials to make your project look professional [Materials](https://material.angular.io/guide/getting-started)
