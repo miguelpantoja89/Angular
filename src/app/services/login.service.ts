@@ -8,10 +8,12 @@ import GoogleUser = gapi.auth2.GoogleUser;
 })
 export class LoginService {
   public static SESSION_STORAGE_KEY: string = 'accessToken';
-  public user: GoogleUser;
+  private user: GoogleUser;
+  userName: string;
 
   constructor(private googleAuth: GoogleAuthService, private ngZone: NgZone) { 
-
+    
+    
   }
   public getToken(): string {
     let token: string = sessionStorage.getItem(LoginService.SESSION_STORAGE_KEY);
@@ -24,12 +26,13 @@ export class LoginService {
 public signIn(): void {
     this.googleAuth.getAuth()
         .subscribe((auth) => {
-            auth.signIn().then(res => this.signInSuccessHandler(res));
+            auth.signIn().then((res: GoogleUser) => this.signInSuccessHandler(res));
         });
 }
 
 private signInSuccessHandler(res: GoogleUser) {
         this.user = res;
+        this.userName = this.user.getBasicProfile().getEmail();
         sessionStorage.setItem(
           LoginService.SESSION_STORAGE_KEY, res.getAuthResponse().access_token
         );
@@ -52,10 +55,13 @@ private signInSuccessHandler(res: GoogleUser) {
     return !_.isEmpty(sessionStorage.getItem(LoginService.SESSION_STORAGE_KEY));
   }
 
-  public infoUser(): string{
-    let namee: string = this.user.getBasicProfile().getName();
-    return namee;
-}
+  public onSignIn(aux: GoogleUser) {
+    var profile = aux.getBasicProfile();
+    console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+    console.log('Name: ' + profile.getName());
+    console.log('Image URL: ' + profile.getImageUrl());
+    console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+  }
 
 
 }

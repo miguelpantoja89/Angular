@@ -8,22 +8,22 @@ import { LoginService } from "src/app/services/login.service";
 })
 export class LoginComponent implements OnInit {
 
-  constructor(public login: LoginService) { }
+  userName: string;
+  constructor(public login2: LoginService) { }
 
   ngOnInit(): void {
+    this.userName = this.login2.userName;
   }
 
   signIn() {
-    this.login.signIn();
+    this.login2.signIn();
   }
 
   signOut() {
-    this.login.signOut();
+    this.login2.signOut();
   }	  
 
-  infoUser(){
-     this.login.infoUser();
-  }
+  
 
 
   
