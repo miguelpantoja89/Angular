@@ -11,6 +11,8 @@ import { NewMailComponent } from './components/new-mail/new-mail.component';
 import { NoticeComponent } from './components/notice/notice.component';
 import { InboxMailsComponent } from './views/inbox-mails/inbox-mails.component';
 import { LoginComponent } from './components/login/login.component';
+///Materials Libs
+import {MatButtonModule} from '@angular/material/button';
 import {
   GoogleApiModule, 
   GoogleApiService, 
@@ -21,6 +23,8 @@ import {
 } from "ng-gapi";
 import { HomeComponent } from './views/home/home.component';
 import { MenuComponent } from './menu/menu/menu.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SenderComponent } from './views/sender/sender.component';
 
 
 let gapiClientConfig: NgGapiClientConfig = {
@@ -47,7 +51,8 @@ let gapiClientConfig: NgGapiClientConfig = {
     InboxMailsComponent,
     LoginComponent,
     HomeComponent,
-    MenuComponent
+    MenuComponent,
+    SenderComponent
   ],
   imports: [
     BrowserModule,
@@ -58,6 +63,7 @@ let gapiClientConfig: NgGapiClientConfig = {
       provide: NG_GAPI_CONFIG,
       useValue: gapiClientConfig
     }),
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
