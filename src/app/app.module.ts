@@ -12,7 +12,13 @@ import { NoticeComponent } from './components/notice/notice.component';
 import { InboxMailsComponent } from './views/inbox-mails/inbox-mails.component';
 import { LoginComponent } from './components/login/login.component';
 ///Materials Libs
-import {MatButtonModule} from '@angular/material/button';
+import {MatButtonModule } from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+import {MatTableModule} from '@angular/material/table';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+
+
 import {
   GoogleApiModule, 
   GoogleApiService, 
@@ -25,6 +31,7 @@ import { HomeComponent } from './views/home/home.component';
 import { MenuComponent } from './menu/menu/menu.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SenderComponent } from './views/sender/sender.component';
+import { MatSelect, MatSelectModule } from '@angular/material/select';
 
 
 let gapiClientConfig: NgGapiClientConfig = {
@@ -59,11 +66,18 @@ let gapiClientConfig: NgGapiClientConfig = {
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
     GoogleApiModule.forRoot({
       provide: NG_GAPI_CONFIG,
       useValue: gapiClientConfig
     }),
     BrowserAnimationsModule,
+    MatButtonModule,
+    MatIconModule,
+    MatTableModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

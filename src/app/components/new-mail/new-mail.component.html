@@ -1,13 +1,15 @@
 <form [formGroup]="newMail" (ngSubmit)="onSubmit()">
     <div>
       <div>
-        <label>Title</label>
-        <input type="text" formControlName="title" />
-        <div *ngIf="submitted && form.title.errors">
-          <div>title: </div>
-          <div *ngIf="form.title.errors.required">Cannot be blank</div>
-          <div *ngIf="form.title.errors.minlength">At least 3 characters</div>
-        </div>
+        <mat-form-field appearance="fill">
+          <mat-label>Title</mat-label>
+          <input matInput type="text" formControlName="title" >
+       
+        <mat-error *ngIf="submitted && form.title.errors">
+          <mat-error *ngIf="form.title.errors.required">Cannot be blank</mat-error>
+          <mat-error *ngIf="form.title.errors.minlength">At least 3 characters</mat-error>
+        </mat-error>
+      </mat-form-field>
       </div>
       <div>
         <label>Cuerpo</label>
