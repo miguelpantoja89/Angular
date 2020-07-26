@@ -11,14 +11,7 @@ import { NewMailComponent } from './components/new-mail/new-mail.component';
 import { NoticeComponent } from './components/notice/notice.component';
 import { InboxMailsComponent } from './views/inbox-mails/inbox-mails.component';
 import { LoginComponent } from './components/login/login.component';
-///Materials Libs
-import {MatButtonModule } from '@angular/material/button';
-import {MatIconModule} from '@angular/material/icon';
-import {MatTableModule} from '@angular/material/table';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
-import {MatCardModule} from '@angular/material/card';
-import {MatToolbarModule} from '@angular/material/toolbar';
+import { MaterialModule } from './modules/material/material.module';
 
 import {
   GoogleApiModule, 
@@ -73,14 +66,7 @@ let gapiClientConfig: NgGapiClientConfig = {
       useValue: gapiClientConfig
     }),
     BrowserAnimationsModule,
-    MatButtonModule,
-    MatIconModule,
-    MatTableModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatSelectModule,
-    MatCardModule,
-    MatToolbarModule
+    MaterialModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
