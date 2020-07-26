@@ -24,3 +24,6 @@ Get angular8 cli <br>
 ### Warning !
 when you download this repo and try to run the project will appear some warnings. To fix them up you need to run the next command : <br>
 > npm install
+
+### Angular Materials
+[Follow Guide to get started](https://material.angular.io/)
